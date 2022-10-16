@@ -1,0 +1,24 @@
+import java.util.*;
+public class Assignment_04 {
+    public static void main(String []args){
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the number : ");
+        int val = s.nextInt();
+        int n = val;
+        int rev = 0;
+        while(n!=0){
+            int rem = n%10;
+            rev = rev*10 + rem;
+            n=n/10;
+        }
+        System.out.println(rev);
+        if(val==rev){
+            System.out.println("Palindrome");
+        }else{
+            System.out.println("Not Palindrome");
+        }
+
+
+    } 
+    
+}
