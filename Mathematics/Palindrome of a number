@@ -17,7 +17,6 @@ public class Assignment_04 {
         }else{
             System.out.println("Not Palindrome");
         }
-
     } 
     
 }
