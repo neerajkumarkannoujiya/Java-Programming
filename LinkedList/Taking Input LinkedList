@@ -1,23 +1,10 @@
-public class Node<T> {
-    T data;
-    Node<T> next;
-
-    Node(T data){
-        this.data = data;
-        this.next = null;
-    }
-}
-
-
-
-
 import java.util.Scanner;
 
 public class NodeUse {
     
 
     public static Node<Integer> takeInput(){
-        Node<Integer> head = null;
+        Node<Integer> head = null,tail=null;
         Scanner s = new Scanner(System.in);
         System.out.println("Enter the data : ");
         int data = s.nextInt();
@@ -25,12 +12,15 @@ public class NodeUse {
             Node<Integer> newNode = new Node<Integer>(data);
             if(head==null){
                 head = newNode;
+                tail = newNode;
             }else{
-                Node<Integer> temp = head;
-                while(temp.next != null){
-                    temp = temp.next;
-                }
-                temp.next = newNode;
+                // Node<Integer> temp = head;
+                // while(temp.next != null){
+                //     temp = temp.next;
+                // }
+                // temp.next = newNode;
+                tail.next = newNode;
+                tail = newNode;
             }
             data = s.nextInt();
         }
