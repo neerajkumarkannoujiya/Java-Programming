@@ -1,3 +1,16 @@
+public class Node<T> {
+    T data;
+    Node<T> next;
+
+    Node(T data){
+        this.data = data;
+        this.next = null;
+    }
+}
+
+
+
+
 public class NodeUse {
     public static void main(String[] args){
         Node<Integer> node1 = new Node<Integer>(20);
