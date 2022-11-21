@@ -6,6 +6,7 @@ public class Assignment_04 {
         int val = s.nextInt();
         int n = val;
         int rev = 0;
+        
         while(n!=0){
             int rem = n%10;
             rev = rev*10 + rem;
