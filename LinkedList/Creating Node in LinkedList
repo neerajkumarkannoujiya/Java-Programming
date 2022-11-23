@@ -9,8 +9,6 @@ public class Node<T> {
 }
 
 
-
-
 public class NodeUse {
     public static void main(String[] args){
         Node<Integer> node1 = new Node<Integer>(20);
