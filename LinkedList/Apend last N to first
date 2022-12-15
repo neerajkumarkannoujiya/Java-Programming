@@ -18,6 +18,7 @@ Constraints :
 0 <= N < M
 Time Limit: 1sec
 
+
 Where 'M' is the size of the singly linked list.
 Sample Input 1 :
 2
