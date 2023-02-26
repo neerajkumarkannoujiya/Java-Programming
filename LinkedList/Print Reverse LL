@@ -12,7 +12,7 @@ Output format :
 For each test case, print the singly linked list of integers in a reverse fashion, in a row, separated by a single space.
 
 Output for every test case will be printed in a seperate line.
- Constraints :
+Constraints :
 1 <= t <= 10^2
 0 <= M <= 10^3
 Time Limit: 1sec
@@ -36,6 +36,8 @@ Sample Output 2 :
 
 
 *********************************************************************************************************************************************
+
+
 
 
 
