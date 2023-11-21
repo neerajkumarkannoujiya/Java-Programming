@@ -15,6 +15,5 @@ public class Assignment_01 {
         }
         System.out.print("The factorial is : ");
         System.out.println(fact);
-
     }
 }
