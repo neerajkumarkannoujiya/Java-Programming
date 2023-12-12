@@ -12,6 +12,7 @@ public class Assignment_04 {
             n=n/10;
         }
 
+
         System.out.println(rev);
         if(val==rev){
             System.out.println("Palindrome");
