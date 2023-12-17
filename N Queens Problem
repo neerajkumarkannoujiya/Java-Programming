@@ -9,7 +9,6 @@ public class Main {
             System.out.println();
         }
     }
-
     // function to check whether the position is safe or not
     static boolean isSafe(int board[][], int row, int col) {
         int i, j;
