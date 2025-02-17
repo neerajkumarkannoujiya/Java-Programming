@@ -1,0 +1,62 @@
+
+import java.util.*;
+class Main {
+    private static void fillLPS(String s,int []lps){
+        int n = s.length();
+        int len = 0;
+        int i = 1;
+        lps[0]=0;
+        while(i<n){
+            if(s.charAt(i)==s.charAt(len)){
+                len++;
+                lps[i]=len;
+                i++;
+            }
+            else{
+                if(len==0){
+                    lps[i]=0;
+                    i++;
+                }
+                else{
+                    len = lps[len-1];
+                }
+            }
+        }
+    }
+    public static int strStr(String s, String p) {
+        int n = s.length();
+        int m = p.length();
+        int lps[] = new int[m];
+        fillLPS(p,lps);
+        int i = 0;
+        int j = 0;
+        int ct = 0;
+        while(i<n){
+            if(s.charAt(i)==p.charAt(j)){
+                i++;
+                j++;
+                if(j==m){
+                    ct++;
+                    System.out.print((i-j) + " ");
+                    j = lps[j-1];
+                }
+            }
+            else if(i<n && s.charAt(i)!=p.charAt(j)){
+                if(j==0){
+                    i++;
+                }
+                else{
+                    j = lps[j-1];
+                }
+            }
+        }
+        return ct;
+    }
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String st = sc.next();
+        String pat = sc.next();
+        int val = strStr(st,pat);
+        System.out.println("TOTAL : " + val);
+    }
+}
