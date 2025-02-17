@@ -1,0 +1,116 @@
+You are given an array nums of size N. A minority element is defined as the element that has a frequency closest to the median frequency of all elements in the array. If there are multiple elements that satisfy this condition, follow these rules:
+
+Return the index the element with the smallest value among them.
+If there is a tie, return the index of the first occurrence of the chosen minority element.
+The array may contain negative numbers, and the size of the array N is always at least 3.
+
+Input Format
+The first line contains a single integer, N, representing the size of the array nums.
+
+The second line contains N space separated integers, representing the elements of the array nums.
+
+Output Format
+Print a single integer, representing the 1-based index of the first occurrence of the chosen minority element.
+
+Constraints
+3 <= N <= 10^5
+
+-10^4 <= nums[i] <= 10^4.
+
+The array contains at least 3 unique elements.
+
+Sample Testcase 0
+Testcase Input
+5
+10 20 30 40 50
+Testcase Output
+1
+Explanation
+Frequency Calculation:
+All elements (10, 20, 30, 40, 50) appear once, so their frequencies are 1.
+
+
+Median Frequency:
+The list of frequencies is [1, 1, 1, 1, 1]. The median frequency is 1.
+
+
+Choosing the Minority Element:
+All elements have the same frequency. The smallest element is 10 and is at index 1 (1 based indexing).
+
+Sample Testcase 1
+Testcase Input
+8
+32 9 58 99 9 32 99 58
+Testcase Output
+2
+
+
+
+
+
+*********************************************************************************************************************************************
+
+
+
+
+
+
+
+import java.util.*;
+
+public class Main {
+    public static int findMinorityElementIndex(int N, int[] nums) {
+        /*
+        Write your logic here.
+        Parameters:
+            N (int): Size of the array
+            nums (int[]): Array of integers
+        Returns:
+            int: 1-based index of the first occurrence of the chosen minority element
+        */
+        Map<Integer,Integer> mp = new HashMap<>();
+        for(int num:nums){
+            mp.put(num,mp.getOrDefault(num,0)+1);
+        }
+        List<Integer> lst = new ArrayList<>();
+        for(Map.Entry<Integer,Integer> set : mp.entrySet()){
+            lst.add(set.getValue());
+        }
+        Collections.sort(lst);
+        double med;
+        if (lst.size() % 2 != 0) {
+            med = lst.get(lst.size() / 2);
+        } else {
+            med = (lst.get(lst.size() / 2 - 1) + lst.get(lst.size() / 2)) / 2.0;
+        }
+
+        int ele = Integer.MAX_VALUE;
+        double minDiff = Double.MAX_VALUE;
+        for (Map.Entry<Integer, Integer> set : mp.entrySet()) {
+            double diff = Math.abs(med - set.getValue());
+            if (diff < minDiff || (diff == minDiff && set.getKey() < ele)) {
+                minDiff = diff;
+                ele = set.getKey();
+            }
+        }
+        for(int i = 0;i<nums.length;i++){
+            if(nums[i]==ele){
+                return i+1;
+            }
+        }
+        
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int[] nums = new int[N];
+        for (int i = 0; i < N; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        int result = findMinorityElementIndex(N, nums);
+        System.out.println(result);
+    }
+}
